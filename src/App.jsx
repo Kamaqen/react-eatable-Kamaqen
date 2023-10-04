@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import { getProducts } from "./services/products-service";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+  useEffect(() => {
+    getProducts().then(
+      (result) => {
+        setIsLoaded(true);
+        setProducts(result);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    );
+  }, []);
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} {product.price} {product.picture_url}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
-
-export default App
+export default App;
