@@ -1,5 +1,17 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "./services/product-services";
+import styled from "@emotion/styled";
+import CardFood from "./components/card";
+
+const ContainerCards = styled.div`
+  max-width: 414px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 3rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-row-gap: 4rem;
+  align-items: center;
+`;
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -24,13 +36,20 @@ function App() {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} {product.price} {product.picture_url}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ContainerCards>
+          {products?.map((elem) => (
+            <CardFood
+              key={elem.id}
+              id={elem.id}
+              name={elem.name}
+              price={elem.price}
+              src={elem.picture_url}
+              // handleProduct={showProduct}
+            />
+          ))}
+        </ContainerCards>
+      </div>
     );
   }
 }
