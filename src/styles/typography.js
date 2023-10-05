@@ -1,5 +1,5 @@
 export const fonts = {
-  primary: `'Source Code Pro', monospace
+  primary: `'Source Sans 3', monospace
   , -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif `,
 };
