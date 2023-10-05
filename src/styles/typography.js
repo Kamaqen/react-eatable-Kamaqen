@@ -28,8 +28,8 @@ export const typography = {
     text-align: center;
     `,
     xl: `
-    font-size: 1.3rem;
-    line-height: 1.75rem;
+    font-size: 22px;
+    line-height: 27.65px;
     `,
   },
   head: {
