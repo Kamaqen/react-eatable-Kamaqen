@@ -12,6 +12,12 @@ const ContainerCards = styled.div`
   grid-row-gap: 4rem;
   align-items: center;
 `;
+const Container = styled.div`
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+`;
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -36,7 +42,7 @@ function App() {
     return <div>Loading...</div>;
   } else {
     return (
-      <div>
+      <Container>
         <ContainerCards>
           {products?.map((elem) => (
             <CardFood
@@ -49,7 +55,7 @@ function App() {
             />
           ))}
         </ContainerCards>
-      </div>
+      </Container>
     );
   }
 }
