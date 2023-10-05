@@ -17,7 +17,7 @@ const Container = styled.div`
   }
 `;
 
-const FoodName = styled.p`
+const DishName = styled.p`
   ${typography.text.xl}
   font-weight: 600;
   text-align: center;
@@ -31,16 +31,16 @@ const ImageContainer = styled.div`
   top: -2.4rem;
 `;
 
-const CardFood = ({ id, name, price, src, handleProduct }) => {
+const CardDish = ({ id, name, price, src, handleProduct }) => {
   return (
     <Container onClick={() => handleProduct(id)}>
       <ImageContainer>
         <Image size={"sm"} src={src} />
       </ImageContainer>
-      <FoodName>{name}</FoodName>
-      <FoodName color={"#FA4A0C"}>${price}</FoodName>
+      <DishName>{name}</DishName>
+      <DishName color={"#FA4A0C"}>${price}</DishName>
     </Container>
   );
 };
 
-export default CardFood;
+export default CardDish;

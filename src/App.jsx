@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "./services/product-services";
 import styled from "@emotion/styled";
-import CardFood from "./components/card";
+import CardDish from "./components/card";
 
 const ContainerCards = styled.div`
   max-width: 414px;
@@ -45,7 +45,7 @@ function App() {
       <Container>
         <ContainerCards>
           {products?.map((elem) => (
-            <CardFood
+            <CardDish
               key={elem.id}
               id={elem.id}
               name={elem.name}
