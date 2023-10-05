@@ -2,61 +2,25 @@ import { useEffect, useState } from "react";
 import { getProducts } from "./services/product-services";
 import styled from "@emotion/styled";
 import CardDish from "./components/card";
+import Dashboard from "./components/Dashboard";
 
-const ContainerCards = styled.div`
-  max-width: 414px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 3rem;
-  grid-template-rows: repeat(5, 1fr);
-  grid-row-gap: 4rem;
-  align-items: center;
-`;
-const Container = styled.div`
-  padding: 30px 20px;
+const Div = styled("div")`
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  justify-content: space-between;
 `;
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    getProducts().then(
-      (result) => {
-        setIsLoaded(true);
-        setProducts(result);
-      },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
-    );
-  }, []);
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <Container>
-        <ContainerCards>
-          {products?.map((elem) => (
-            <CardDish
-              key={elem.id}
-              id={elem.id}
-              name={elem.name}
-              price={elem.price}
-              src={elem.picture_url}
-              // handleProduct={showProduct}
-            />
-          ))}
-        </ContainerCards>
-      </Container>
-    );
-  }
+  return (
+    <Div>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Navigate to="/products" />} />
+          <Route path="products" element={<Dashboard />} />
+        </Route>
+      </Routes>
+    </Div>
+  );
 }
 export default App;
