@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { getProducts } from "../services/product-services";
-import CardDish from "./card";
+import CardDish from "../components/card";
 import { typography } from "../styles";
 
 const ContainerCards = styled.div`

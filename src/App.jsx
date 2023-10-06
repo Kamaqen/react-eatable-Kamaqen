@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "./services/product-services";
 import styled from "@emotion/styled";
-import CardDish from "./components/card";
-import Dashboard from "./components/Dashboard";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 
 const Div = styled("div")`
   min-height: 100vh;
