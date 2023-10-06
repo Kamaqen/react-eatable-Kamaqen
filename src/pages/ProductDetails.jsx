@@ -5,6 +5,11 @@ import { typography } from "../styles";
 import Image from "../components/image";
 import CustomButton from "../components/Button";
 
+const Footer = styled.footer`
+  position: absolute;
+  bottom: -82px;
+`;
+
 const Container = styled.div`
   padding: 40px 13px;
   font-size: 1.4rem;
@@ -70,7 +75,9 @@ export const ProductDetails = ({ handleFilter }) => {
           </Body>
         </TextSection>
       </Main>
-      <CustomButton onClick={() => navigate(-1)}>Go Back</CustomButton>
+      <Footer>
+        <CustomButton onClick={() => navigate(-1)}>Go Back</CustomButton>
+      </Footer>
     </Container>
   );
 };
