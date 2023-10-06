@@ -6,12 +6,12 @@ import Image from "../components/image";
 import CustomButton from "../components/Button";
 
 const Container = styled.div`
-  padding: 40px 50px;
+  padding: 40px 13px;
   font-size: 1.4rem;
 `;
 
 const Main = styled.div`
-  margin-top: 25px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,12 +21,15 @@ const Main = styled.div`
 const TextSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.6875rem;
+  gap: 27px;
 `;
 
 const Title = styled.div`
   ${typography.head.md}
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const Price = styled.p`
@@ -38,7 +41,7 @@ const Body = styled.div`
   text-align: initial;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 4px;
 `;
 
 const Description = styled.p`
@@ -66,8 +69,8 @@ export const ProductDetails = ({ handleFilter }) => {
             <Description>{product?.description}</Description>
           </Body>
         </TextSection>
-        <CustomButton handleClick={() => navigate("/")}>Go Back</CustomButton>
       </Main>
+      <CustomButton onClick={() => navigate(-1)}>Go Back</CustomButton>
     </Container>
   );
 };

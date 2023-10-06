@@ -6,7 +6,7 @@ import { getProducts } from "./services/product-services";
 import { useEffect, useState } from "react";
 
 const Div = styled("div")`
-  min-height: 100vh;
+  min-height: 896px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

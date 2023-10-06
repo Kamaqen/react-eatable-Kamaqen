@@ -21,8 +21,8 @@ export const typography = {
     line-height: 1.26rem;
     `,
     lg: `
-    font-size: 1.125rem;
-    line-height: 1.41rem;
+    font-size: 18px;
+    line-height: 22.63px;
     font-style: normal;
     font-weight: 600;
     text-align: center;
