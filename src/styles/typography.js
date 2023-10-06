@@ -34,8 +34,8 @@ export const typography = {
   },
   head: {
     xs: `
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 22px;
+    line-height: 27.65px;
     `,
     sm: `
     font-size: 1.5rem;
