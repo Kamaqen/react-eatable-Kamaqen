@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { getProducts } from "../services/product-services";
 import CardDish from "../components/card";
 import { typography } from "../styles";
+import { useNavigate } from "react-router-dom";
 
 const ContainerCards = styled.div`
   max-width: 414px;
@@ -26,45 +25,30 @@ const Header = styled.div`
   ${typography.head.sm}
 `;
 
-function Dashboard() {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    getProducts().then(
-      (result) => {
-        setIsLoaded(true);
-        setProducts(result);
-      },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
-    );
-  }, []);
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <Container>
-        <Header>Products Dashboard</Header>
-        <ContainerCards>
-          {products?.map((elem) => (
-            <CardDish
-              key={elem.id}
-              id={elem.id}
-              name={elem.name}
-              price={elem.price}
-              src={elem.picture_url}
-              // handleProduct={showProduct}
-            />
-          ))}
-        </ContainerCards>
-      </Container>
-    );
+function Dashboard({ products }) {
+  const navigate = useNavigate();
+  function showProduct(id) {
+    navigate(`/products/${id}`);
   }
+
+  return (
+    <Container>
+      <Header>Products Dashboard</Header>
+      <ContainerCards>
+        {products?.map((elem) => (
+          <CardDish
+            key={elem.id}
+            id={elem.id}
+            name={elem.name}
+            price={elem.price}
+            src={elem.picture_url}
+            product={elem}
+            handleProduct={showProduct}
+          />
+        ))}
+      </ContainerCards>
+    </Container>
+  );
 }
+
 export default Dashboard;
