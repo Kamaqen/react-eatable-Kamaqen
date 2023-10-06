@@ -9,10 +9,11 @@ const Button = styled.button`
   border-radius: 30px;
   color: #fff;
   ${typography.text.lg}
+  background-color: #FA4A0C;
 `;
 
-function CustomButton({ children, handleCLick }) {
-  return <Button onClick={handleCLick}>{children}</Button>;
+function CustomButton({ onClick, children }) {
+  return <Button onClick={onClick}>{children}</Button>;
 }
 
 export default CustomButton;
