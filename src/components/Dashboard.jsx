@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { getProducts } from "../services/product-services";
 import CardDish from "./card";
+import { typography } from "../styles";
 
 const ContainerCards = styled.div`
   max-width: 414px;
@@ -16,7 +17,13 @@ const Container = styled.div`
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 4rem;
+`;
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${typography.head.sm}
 `;
 
 function Dashboard() {
@@ -43,6 +50,7 @@ function Dashboard() {
   } else {
     return (
       <Container>
+        <Header>Products Dashboard</Header>
         <ContainerCards>
           {products?.map((elem) => (
             <CardDish
