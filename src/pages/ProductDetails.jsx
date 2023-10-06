@@ -76,7 +76,13 @@ export const ProductDetails = ({ handleFilter }) => {
         </TextSection>
       </Main>
       <Footer>
-        <CustomButton onClick={() => navigate(-1)}>Go Back</CustomButton>
+        <CustomButton
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Go Back
+        </CustomButton>
       </Footer>
     </Container>
   );

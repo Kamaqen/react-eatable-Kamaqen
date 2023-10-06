@@ -55,8 +55,8 @@ const ImageContainer = styled.div`
 
 const CardDish = ({ id, name, price, src, handleProduct }) => {
   return (
-    <Container onClick={() => handleProduct(id)}>
-      <ImageContainer>
+    <Container>
+      <ImageContainer onClick={() => handleProduct(id)}>
         <Image size={"sm"} src={src} />
       </ImageContainer>
       <DishDetailsContainer>
