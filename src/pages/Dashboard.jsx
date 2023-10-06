@@ -42,7 +42,6 @@ function Dashboard({ products }) {
             name={elem.name}
             price={elem.price}
             src={elem.picture_url}
-            product={elem}
             handleProduct={showProduct}
           />
         ))}
