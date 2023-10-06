@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { typography } from "../styles";
 import Image from "../components/image";
+import CustomButton from "../components/Button";
 
 const Container = styled.div`
   padding: 40px 50px;
@@ -44,9 +45,10 @@ const Description = styled.p`
   ${typography.text.md}
 `;
 
-export const ProductDetails = () => {
+export const ProductDetails = ({ handleFilter }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const product = handleFilter(Number.parseInt(id));
   return (
     <Container>
       <Main>
