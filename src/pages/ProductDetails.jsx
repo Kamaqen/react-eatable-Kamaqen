@@ -7,7 +7,7 @@ import CustomButton from "../components/Button";
 
 const Footer = styled.footer`
   position: absolute;
-  bottom: -82px;
+  bottom: 92px;
 `;
 
 const Container = styled.div`
