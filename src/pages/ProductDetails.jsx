@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { typography } from "../styles";
 import Image from "../components/image";
 
@@ -46,6 +46,7 @@ const Description = styled.p`
 
 export const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   return (
     <Container>
       <Main>
@@ -63,7 +64,7 @@ export const ProductDetails = () => {
             <Description>{product?.description}</Description>
           </Body>
         </TextSection>
-        <CustomButton onClick={() => navigate("/")}>Go Back</CustomButton>
+        <CustomButton handleClick={() => navigate("/")}>Go Back</CustomButton>
       </Main>
     </Container>
   );
