@@ -13,8 +13,12 @@ const Header = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 40px 13px;
+  padding: 40px 0px;
   font-size: 1.4rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Footer = styled.footer`
@@ -25,11 +29,11 @@ const Footer = styled.footer`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 213px;
+  width: 414px;
   height: 372px;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
   margin-top: 96px;
 `;
 
@@ -87,7 +91,6 @@ function EditProduct() {
           name="price"
           type="number"
           value={product.price}
-          placeholder="0"
           label="Price"
           onChange={handleChange}
         />
