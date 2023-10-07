@@ -10,6 +10,7 @@ const Button = styled.button`
   color: #fff;
   ${typography.text.lg}
   background-color: #FA4A0C;
+  cursor: pointer;
 `;
 
 function CustomButton({ onClick, children }) {
