@@ -53,10 +53,11 @@ const Description = styled.p`
   ${typography.text.md}
 `;
 
-export const ProductDetails = ({ handleFilter }) => {
+export const ProductDetails = ({ handleSearchProduct }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = handleFilter(Number.parseInt(id));
+  const product = handleSearchProduct(Number.parseInt(id));
+
   return (
     <Container>
       <Main>
