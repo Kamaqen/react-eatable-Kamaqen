@@ -43,10 +43,10 @@ function EditProduct({ products }) {
       <Footer>
         <CustomButton
           onClick={() => {
-            navigate("/");
+            navigate(`/products/${id}`);
           }}
         >
-          Go Back
+          Save
         </CustomButton>
       </Footer>
     </Container>
