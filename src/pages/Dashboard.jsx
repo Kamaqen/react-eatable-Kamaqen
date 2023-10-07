@@ -58,10 +58,10 @@ function Dashboard({ products }) {
       <Footer>
         <CustomButton
           onClick={() => {
-            navigate("/products/create");
+            navigate("create");
           }}
         >
-          Create
+          Create Product
         </CustomButton>
       </Footer>
     </Container>

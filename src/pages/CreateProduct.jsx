@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import CustomButton from "../components/Button";
-import { getProductById, updateProduct } from "../services/product-services";
 
 const Header = styled.div`
   display: flex;
@@ -34,7 +33,6 @@ const StyledForm = styled.form`
 `;
 
 function CreateProduct() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     name: "",
@@ -72,7 +70,6 @@ function CreateProduct() {
         <Input
           name="price"
           type="number"
-          placeholder="0"
           label="Price"
           onChange={handleChange}
         />
