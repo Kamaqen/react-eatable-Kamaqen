@@ -27,10 +27,7 @@ function App() {
         <Route path="/">
           <Route index element={<Navigate to="/products" />} />
           <Route path="products" element={<Dashboard products={products} />} />
-          <Route
-            path="products/:id"
-            element={<ProductDetails handleSearchProduct={searchProduct} />}
-          />
+          <Route path="products/:id" element={<ProductDetails />} />
           <Route path="products/:id/edit" element={<EditProduct />} />
         </Route>
       </Routes>

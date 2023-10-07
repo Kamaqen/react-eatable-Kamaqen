@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { typography } from "../styles";
 import Image from "../components/image";
 import CustomButton from "../components/Button";
+import { getProductById } from "../services/product-services";
 
 const Footer = styled.footer`
   position: absolute;
@@ -53,10 +54,17 @@ const Description = styled.p`
   ${typography.text.md}
 `;
 
-export const ProductDetails = ({ handleSearchProduct }) => {
+export const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = handleSearchProduct(Number.parseInt(id));
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    getProductById(id)
+      .then((response) => {
+        setProduct(response);
+      })
+      .catch((err) => console.error(err));
+  }, [id]);
 
   return (
     <Container>
