@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import CardDish from "../components/card";
 import { typography } from "../styles";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../components/Button";
 
 const ContainerCards = styled.div`
   max-width: 414px;
@@ -23,6 +24,10 @@ const Header = styled.div`
   align-items: center;
   justify-content: center;
   ${typography.head.sm}
+`;
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 92px;
 `;
 
 function Dashboard({ products }) {
@@ -50,6 +55,15 @@ function Dashboard({ products }) {
           />
         ))}
       </ContainerCards>
+      <Footer>
+        <CustomButton
+          onClick={() => {
+            navigate("/products/create");
+          }}
+        >
+          Create
+        </CustomButton>
+      </Footer>
     </Container>
   );
 }
