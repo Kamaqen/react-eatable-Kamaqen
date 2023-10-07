@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import CustomButton from "../components/Button";
+import { createProduct } from "../services/product-services";
 
 const Header = styled.div`
   display: flex;

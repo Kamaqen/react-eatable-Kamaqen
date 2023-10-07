@@ -15,3 +15,10 @@ export async function updateProduct(id, productData) {
   });
   return product;
 }
+
+export async function createProduct(productData) {
+  const { token, ...product } = await apiFetch("/products", {
+    body: productData,
+  });
+  return product;
+}
