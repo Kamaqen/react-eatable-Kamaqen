@@ -33,7 +33,7 @@ const StyledForm = styled.form`
   margin-top: 96px;
 `;
 
-function EditProduct() {
+function CreateProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({
@@ -43,14 +43,6 @@ function EditProduct() {
     category: "",
     picture_url: "",
   });
-
-  useEffect(() => {
-    getProductById(id)
-      .then((response) => {
-        setProduct(response);
-      })
-      .catch((err) => console.error(err));
-  }, [id]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -64,57 +56,35 @@ function EditProduct() {
     event.preventDefault();
 
     try {
-      await updateProduct(id, product);
-      console.log("Producto actualizado exitosamente:", product);
-      navigate(`/products/${id}`);
+      await createProduct(product);
+      console.log("Product created successfully", product);
+      navigate("/");
     } catch (error) {
-      console.error("Error al actualizar el producto:", error);
+      console.error("Error in creating product:", error);
     }
   };
 
   return (
     <Container>
-      <Header>Edit Product</Header>
+      <Header>Create Product</Header>
       <StyledForm onSubmit={handleSubmit}>
-        <Input
-          name="name"
-          type="text"
-          value={product.name}
-          label="Name"
-          onChange={handleChange}
-        />
+        <Input name="name" type="text" label="Name" onChange={handleChange} />
         <Input
           name="price"
           type="number"
-          value={product.price}
           placeholder="0"
           label="Price"
           onChange={handleChange}
         />
-        <Input
-          name="description"
-          value={product.description}
-          label="Description"
-          onChange={handleChange}
-        />
-        <Input
-          name="category"
-          value={product.category}
-          label="Category"
-          onChange={handleChange}
-        />
-        <Input
-          name="picture_url"
-          value={product.picture_url}
-          label="Picture URL"
-          onChange={handleChange}
-        />
+        <Input name="description" label="Description" onChange={handleChange} />
+        <Input name="category" label="Category" onChange={handleChange} />
+        <Input name="picture_url" label="Picture URL" onChange={handleChange} />
         <Footer>
-          <CustomButton type="submit">Save</CustomButton>
+          <CustomButton type="submit">Create</CustomButton>
         </Footer>
       </StyledForm>
     </Container>
   );
 }
 
-export default EditProduct;
+export default CreateProduct;
