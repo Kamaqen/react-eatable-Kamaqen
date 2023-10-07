@@ -53,7 +53,14 @@ const ImageContainer = styled.div`
   top: -34px;
 `;
 
-const CardDish = ({ id, name, price, src, handleProduct }) => {
+const CardDish = ({
+  id,
+  name,
+  price,
+  src,
+  handleProduct,
+  handleEditProduct,
+}) => {
   return (
     <Container>
       <ImageContainer onClick={() => handleProduct(id)}>
@@ -62,7 +69,7 @@ const CardDish = ({ id, name, price, src, handleProduct }) => {
       <DishDetailsContainer>
         <DishName>{name}</DishName>
         <DishName color={"#FA4A0C"}>${price}</DishName>
-        <ButtonContainer>
+        <ButtonContainer onClick={() => handleEditProduct(id)}>
           <ButtonImg src="src/assets/edit-box-fill.svg" />
           <ButtonImg src="src/assets/delete-bin-fill.svg" />
         </ButtonContainer>

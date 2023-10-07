@@ -1,4 +1,9 @@
+import styled from "@emotion/styled";
 import React from "react";
+import { typography } from "../styles";
+import { useNavigate, useParams } from "react-router-dom";
+import Input from "../components/Input";
+import CustomButton from "../components/Button";
 
 const Header = styled.div`
   display: flex;
@@ -6,10 +11,48 @@ const Header = styled.div`
   justify-content: center;
   ${typography.head.sm}
 `;
+const Container = styled.div`
+  padding: 40px 13px;
+  font-size: 1.4rem;
+`;
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 92px;
+`;
 
-export const EditProduct = () => {
-  return <Header>Edit Product</Header>;
-};
+function EditProduct({ products }) {
+  const { id } = useParams();
+  console.log(products.find((product) => product.id === Number.parseInt(id)));
+  const navigate = useNavigate();
+  const { name, price, description, category, picture_url } = products.find(
+    (product) => product.id === Number.parseInt(id)
+  );
+  return (
+    <Container>
+      <Input name="name" type="name" value={name} label="name" />
+      <Input
+        name="price"
+        type="price"
+        value={price}
+        placeholder="******"
+        label="price"
+      />
+      <Input name="description" value={description} label="description" />
+      <Input name="category" value={category} label="category" />
+      <Input name="picture_url" value={picture_url} label="picture url" />
+      <Footer>
+        <CustomButton
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Go Back
+        </CustomButton>
+      </Footer>
+    </Container>
+  );
+}
+export default EditProduct;
 
 // import styled from "@emotion/styled";
 // import { useState } from "react";

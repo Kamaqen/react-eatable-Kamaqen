@@ -30,6 +30,9 @@ function Dashboard({ products }) {
   function showProduct(id) {
     navigate(`/products/${id}`);
   }
+  function editProduct(id) {
+    navigate(`/products/${id}/edit`);
+  }
 
   return (
     <Container>
@@ -43,6 +46,7 @@ function Dashboard({ products }) {
             price={elem.price}
             src={elem.picture_url}
             handleProduct={showProduct}
+            handleEditProduct={editProduct}
           />
         ))}
       </ContainerCards>
