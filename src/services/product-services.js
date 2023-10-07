@@ -22,3 +22,10 @@ export async function createProduct(productData) {
   });
   return product;
 }
+
+export async function deleteProduct(id) {
+  await apiFetch(`/products/${id}`, {
+    method: "DELETE",
+  });
+
+}
