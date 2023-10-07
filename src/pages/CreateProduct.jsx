@@ -25,7 +25,7 @@ const Footer = styled.footer`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 213px;
+  width: fit-content;
   height: 372px;
   justify-content: center;
   align-items: center;

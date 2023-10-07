@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import { typography } from "../styles/typography";
 
 const Container = styled.div`
-  width: 310px;
+  width: 350px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
 `;
