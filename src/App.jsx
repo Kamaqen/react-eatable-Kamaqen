@@ -31,10 +31,7 @@ function App() {
             path="products/:id"
             element={<ProductDetails handleSearchProduct={searchProduct} />}
           />
-          <Route
-            path="products/:id/edit"
-            element={<EditProduct products={products} />}
-          />
+          <Route path="products/:id/edit" element={<EditProduct />} />
         </Route>
       </Routes>
     </Div>
