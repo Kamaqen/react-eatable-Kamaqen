@@ -61,7 +61,19 @@ const CardDish = ({
   src,
   handleProduct,
   handleEditProduct,
+  refreshDashboard,
 }) => {
+  const handleDelete = async (event) => {
+    event.preventDefault();
+
+    try {
+      await deleteProduct(id);
+      console.log("Product deleted successfully", product);
+      refreshDashboard();
+    } catch (error) {
+      console.error("Error in deleting product:", error);
+    }
+  };
   return (
     <Container>
       <ImageContainer onClick={() => handleProduct(id)}>
@@ -76,7 +88,7 @@ const CardDish = ({
             src="src/assets/edit-box-fill.svg"
           />
           <ButtonImg
-            onClick={() => deleteProduct(id)}
+            onClick={handleDelete}
             src="src/assets/delete-bin-fill.svg"
           />
         </ButtonContainer>
