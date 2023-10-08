@@ -3,6 +3,9 @@ import CardDish from "../components/card";
 import { typography } from "../styles";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../components/Button";
+import { useEffect, useState } from "react";
+import { getProducts } from "../services/product-services";
+// import Modal from "../components/ModalDelete";
 
 const ContainerCards = styled.div`
   max-width: 414px;
@@ -30,8 +33,24 @@ const Footer = styled.footer`
   bottom: 92px;
 `;
 
-function Dashboard({ products }) {
+// const BUTTON_WRAPPER_STYLES = {
+//   position: "relative",
+//   zIndex: 1,
+// };
+
+// const OTHER_CONTENT_STYLES = {
+//   position: "relative",
+//   zIndex: 2,
+//   padding: "10px",
+// };
+
+function Dashboard() {
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  // const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    getProducts().then(setProducts).catch(console.log);
+  }, []);
   function showProduct(id) {
     navigate(`/products/${id}`);
   }
