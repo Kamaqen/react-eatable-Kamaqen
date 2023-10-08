@@ -69,10 +69,10 @@ function EditProduct() {
 
     try {
       await updateProduct(id, product);
-      console.log("Producto actualizado exitosamente:", product);
+      console.log("Product updated succesfullly:", product);
       navigate(`/products/${id}`);
     } catch (error) {
-      console.error("Error al actualizar el producto:", error);
+      console.error("Error in updating product:", error);
     }
   };
 

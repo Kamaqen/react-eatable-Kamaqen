@@ -50,13 +50,16 @@ function Dashboard() {
   // const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     getProducts().then(setProducts).catch(console.log);
-  }, []);
+  }, [products]);
   function showProduct(id) {
     navigate(`/products/${id}`);
   }
   function editProduct(id) {
     navigate(`/products/${id}/edit`);
   }
+  const refreshDashboard = () => {
+    getProducts().then(setProducts).catch(console.log);
+  };
 
   return (
     <Container>
@@ -71,6 +74,7 @@ function Dashboard() {
             src={elem.picture_url}
             handleProduct={showProduct}
             handleEditProduct={editProduct}
+            refreshDashboard={refreshDashboard}
           />
         ))}
       </ContainerCards>
