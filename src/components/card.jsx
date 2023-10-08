@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { colors, typography } from "../styles";
 import Image from "./image";
+import { deleteProduct } from "../services/product-services";
 
 const Container = styled.div`
   width: 156px;
@@ -69,9 +70,15 @@ const CardDish = ({
       <DishDetailsContainer>
         <DishName>{name}</DishName>
         <DishName color={"#FA4A0C"}>${price}</DishName>
-        <ButtonContainer onClick={() => handleEditProduct(id)}>
-          <ButtonImg src="src/assets/edit-box-fill.svg" />
-          <ButtonImg src="src/assets/delete-bin-fill.svg" />
+        <ButtonContainer>
+          <ButtonImg
+            onClick={() => handleEditProduct(id)}
+            src="src/assets/edit-box-fill.svg"
+          />
+          <ButtonImg
+            onClick={() => deleteProduct(id)}
+            src="src/assets/delete-bin-fill.svg"
+          />
         </ButtonContainer>
       </DishDetailsContainer>
     </Container>
