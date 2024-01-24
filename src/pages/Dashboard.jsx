@@ -44,13 +44,13 @@ const Footer = styled.footer`
 //   padding: "10px",
 // };
 
-function Dashboard() {
-  const [products, setProducts] = useState([]);
+function Dashboard({ products }) {
+  // const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    getProducts().then(setProducts).catch(console.log);
-  }, [products]);
+  // useEffect(() => {
+  //   getProducts().then(setProducts).catch(console.log);
+  // }, [products]);
   function showProduct(id) {
     navigate(`/products/${id}`);
   }
