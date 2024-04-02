@@ -34,3 +34,22 @@ To run the app in development mode, use the following command:
 npm run dev
 ```
 This will start the development server. Open http://localhost:5173 in your browser to view the app.
+
+## Dependencies
+
+- **@emotion/react**: "^11.11.1"
+- **@emotion/styled**: "^11.11.0"
+- **react**: "^18.2.0"
+- **react-dom**: "^18.2.0"
+- **react-router-dom**: "^6.16.0"
+
+## Dev Dependencies
+
+- **@types/react**: "^18.0.28"
+- **@types/react-dom**: "^18.0.11"
+- **@vitejs/plugin-react**: "^3.1.0"
+- **vite**: "^4.2.0"
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
